@@ -1,0 +1,21 @@
+type Field @model {
+   id: ID! @isUnique
+   tid:String!
+   name:String!
+   type:String!
+   isNull:Int!
+   isPrimary:Int!
+   unit:String!
+   desc:String!
+   format:String!
+   check:Int!
+   table: Table! @relation(name: "Fields")
+}
+
+type Table @model {
+   id: ID! @isUnique
+   name: String!
+   type:String!
+   desc:String!
+   fields: [Field!]! @relation(name: "Fields")
+}
